@@ -62,7 +62,6 @@ function Post() {
     <div>
       <div className="card box-shadow-back" style={{ width: '18rem' }}>
         <div className="card-body">
-        <h3>How are you feeling today?</h3>
           <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
             Character Count: {characterCount}/280
             {error && <span className="ml-2">Something went wrong...</span>}
@@ -71,12 +70,6 @@ function Post() {
             className="flex-row justify-center justify-space-between-md align-stretch"
             onSubmit={handleFormSubmit}
           >
-            {/* <textarea
-              placeholder="Please let your midwife know how you are doing"
-              value={postText}
-              className="form-input col-12 col-md-9"
-              onChange={handleChange}
-            ></textarea> */}
             <div><input id="post_text" name="postText" value={postText} onChange={handleChange} autoComplete="on" placeholder="quack" /></div>
 
             <button className="btn" type="submit">
