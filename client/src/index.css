@@ -86,7 +86,7 @@ a::after {
 
 .landingHero {
     background-position: center;
-    box-shadow: 0 8px 6px -6px black;
+    height: 100vh;
   }
 
   .loginSignupBtn {

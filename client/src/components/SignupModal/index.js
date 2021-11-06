@@ -83,11 +83,6 @@ const SignupModal = () => {
                             <label id="signupPasswordLabel" htmlFor="signup-password">Password (minimum of 4 characters)</label>
                             <div><input value={formState.password} onChange={handleChange} id="signup-password-input" type="password" name="password" placeholder="Required" autoComplete="on"/></div>
                         </div>
-                        <br />
-                        <div>
-                            <label id="signupConfirmPasswordLabel" htmlFor="signup-confirm-password">Confirm Password (minimum of 4 characters)</label>
-                            <div><input id="signup-confirm-password-input" type="password" name="signup-confirm-password" placeholder="Required" autoComplete="on"/></div>
-                        </div>
                     </form>
                 </div>
                 <div className="modal-footer">
