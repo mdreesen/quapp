@@ -1,0 +1,37 @@
+{
+  "name": "quapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "13.x"
+  },
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "cd server && npm start",
+    "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "heroku-postbuild": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdreesen/quapp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdreesen/quapp/issues"
+  },
+  "homepage": "https://github.com/mdreesen/quapp#readme",
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "concurrently": "^6.0.0",
+    "connect-session-sequelize": "^7.1.1",
+    "express-session": "^1.17.1",
+    "if-env": "^1.0.4",
+    "react-bootstrap": "^1.5.0",
+    "react-router-dom": "^5.2.0",
+    "serve": "^11.3.2"
+  }
+}
