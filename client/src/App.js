@@ -10,6 +10,7 @@ import ApolloClient from 'apollo-boost';
 import Landing from './pages/Landing';
 import UserSettings from './pages/UserSettings';
 import Home from './pages/Home';
+import Posts from './pages/Posts';
 
 import NotAPage from './pages/NotAPage';
 
@@ -41,6 +42,7 @@ function App() {
             <Route exact path="/" component={Landing}/>
             <Route exact path="/settings" component={UserSettings} />
             <Route exact path="/home" component={Home}/>
+            <Route exact path="/quack" component={Posts} />
             <Route exact path="/profile/user/:username" component={UserProfile}/>
 
             <Route component={NotAPage}/>

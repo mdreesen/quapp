@@ -71,12 +71,14 @@ function Post() {
             className="flex-row justify-center justify-space-between-md align-stretch"
             onSubmit={handleFormSubmit}
           >
-            <textarea
+            {/* <textarea
               placeholder="Please let your midwife know how you are doing"
               value={postText}
               className="form-input col-12 col-md-9"
               onChange={handleChange}
-            ></textarea>
+            ></textarea> */}
+            <div><input id="post_text" name="postText" value={postText} onChange={handleChange} autoComplete="on" placeholder="quack" /></div>
+
             <button className="btn" type="submit">
               Submit
             </button>
