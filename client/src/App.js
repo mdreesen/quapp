@@ -42,7 +42,7 @@ function App() {
             <Route exact path="/" component={Landing}/>
             <Route exact path="/settings" component={UserSettings} />
             <Route exact path="/home" component={Home}/>
-            <Route exact path="/quack" component={Posts} />
+            <Route exact path="/quacks" component={Posts} />
             <Route exact path="/profile/user/:username" component={UserProfile}/>
 
             <Route component={NotAPage}/>

@@ -14,8 +14,8 @@ export const QUERY_USER = gql`
 
 // Getting user by username
 export const QUERY_USERTWO = gql `
-  query userTwo($username: String!) {
-    userTwo(username: $username) {
+  query user($username: String!) {
+    user(username: $username) {
       _id
       username
       firstname
