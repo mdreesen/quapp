@@ -14,24 +14,9 @@ function UserInfo() {
         {loggedIn && userData ? (
             <>
                 <h1>{userData.me.username}'s profile</h1>
-                <div className="radio-btn-container">
-                <p>Trying To Conceive</p>
-                    <button type="button" className="btn" id="ttc-btn">
-                        Update
-                    </button>
-                <div className="form-check">
-                    <p>Pregnant</p>
-                    <button type="button"className="btn" id="pregnant-btn">
-                        Update
-                    </button>
-                </div>
-                <div className="form-check">
-                    <p>Postpartum</p>
-                    <button type="button" className="btn" id="pp-btn">
-                        Update
-                    </button>
-                </div>
-            </div>
+                <h2>{userData.me.firstname}</h2>
+                <h2>{userData.me.lastname}</h2>
+                <h2>{userData.me.email}</h2>
         </>
         ) : (
             <>

@@ -21,9 +21,9 @@ export const QUERY_USERTWO = gql `
       firstname
       lastname
       email
-      feelings {
+      posts {
         _id
-        feelingText
+        postText
         email
       }
     }
@@ -38,9 +38,9 @@ export const QUERY_USERS = gql `
       firstname
       lastname
       email
-      feelings {
+      posts {
         _id
-        feelingText
+        postText
         createdAt
         email
       }
@@ -58,13 +58,13 @@ export const QUERY_ASSOCIATED_USER = gql `
   }
 `;
 
-export const QUERY_FEELINGS = gql `
-  query feelings($email: String) {
-    feelings(email: $email) {
+export const QUERY_POSTS = gql `
+  query posts($email: String) {
+    posts(email: $email) {
       _id
       email
       createdAt
-      feelingText
+      postText
     }
   }
 `;
@@ -105,11 +105,11 @@ export const QUERY_ME = gql `
       firstname
       lastname
       email
-      feelings {
+      posts {
         _id
         email
         createdAt
-        feelingText
+        postText
       }
     }
   }
@@ -124,24 +124,12 @@ export const QUERY_ME_BASIC = gql `
       firstname
       lastname
       email
-      feelings {
+      posts {
         _id
         email
         createdAt
-        feelingText
+        postText
       }
     }
   }
-`;
-
-export const QUERY_ADMIN = gql `
-{
-  viewAdmin {
-    _id
-    username
-    firstname
-    lastname
-    email
-  }
-}
 `;

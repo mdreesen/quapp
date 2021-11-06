@@ -29,29 +29,13 @@ mutation($username: String!, $firstname: String!, $lastname: String!, $email: St
   }
 `;
 
-export const ADD_FEELING = gql `
-  mutation addFeeling($feelingText: String!) {
-    addFeeling(feelingText: $feelingText) {
+export const ADD_POST = gql `
+  mutation addPost($postText: String!) {
+    addPost(postText: $postText) {
       _id
-      feelingText
+      postText
       createdAt
       email
-    }
-  }
-`;
-
-export const ASSOCIATE_WITH_WORKER = gql `
-  mutation associateWorker($id: ID!) {
-    associateWorker(awwId: $id) {
-      _id
-      username
-      associateWithWorker {
-        _id
-        username
-        firstname
-        lastname
-        email
-      }
     }
   }
 `;
@@ -64,34 +48,3 @@ export const ASSOCIATE_WITH_USER = gql `
     }
   }
 `;
-
-
-// -=- BIRTHWORKER MUTATIONS -=-
-export const ADD_BIRTHWORKER = gql `
-  mutation($username: String!, $firstname: String!, $lastname: String!, $email: String!, $password: String!) {
-    addBirthworker(username: $username, firstname: $firstname, lastname: $lastname, email: $email, password: $password) {
-      token
-      birthworker {
-        _id
-        username
-        firstname
-        lastname
-        email
-        password
-      }
-    }
-  }
-`;
-
-export const ADMIN_LOGIN = gql `
-  mutation workerLogin($email: String!, $password: String!) {
-      adminLogin(email: $email, password: $password) {
-      token
-      admin {
-        _id
-        email
-      }
-    }
-  }
-`;
-

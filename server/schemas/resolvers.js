@@ -22,7 +22,7 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
-          .populate('feelings')
+          .populate('posts')
         return userData;
       }
       throw new AuthenticationError('Not logged in');
@@ -31,24 +31,24 @@ const resolvers = {
     users: async () => {
       return User.find()
         .select('-__v -password')
-        .populate('feelings')
+        .populate('posts')
     },
 
     // Getting user by email
     user: async (parent, { email }) => {
       return User.findOne({ email })
         .select('-__v -password')
-        .populate('feelings')
+        .populate('posts')
     },
 
     // Getting user be username
     userTwo: async (parent, { username }) => {
       return User.findOne({ username })
         .select('-__v -password')
-        .populate('feelings')
+        .populate('posts')
     },
 
-    // getting all feelings
+    // getting all posts
     posts: async (parent, { email }) => {
       const params = email ? { email } : {};
       return Feeling.find(params).sort({ createdAt: -1 });
@@ -86,7 +86,7 @@ const resolvers = {
         const feeling = await Feeling.create({ ...args, email: context.user.email });
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $push: { feelings: feeling._id } },
+          { $push: { posts: feeling._id } },
           { new: true }
         );
         return feeling;

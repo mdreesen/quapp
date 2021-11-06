@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { ADD_FEELING } from '../../utils/mutations';
-import { QUERY_FEELINGS, QUERY_ME } from '../../utils/queries';
+import { ADD_POST } from '../../utils/mutations';
+import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 
-function Mood() {
+function Post() {
 
-  const [feelingText, setText] = useState('');
+  const [postText, setText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
 
 
-  const [addFeeling, { error }] = useMutation(ADD_FEELING, {
-    update(cache, { data: { addFeeling } }) {
+  const [addPost, { error }] = useMutation(ADD_POST, {
+    update(cache, { data: { addPost } }) {
       try {
         // update feeling array's cache
         // could potentially not exist yet, so wrap in a try/catch
-        const { feelings } = cache.readQuery({ query: QUERY_FEELINGS });
+        const { posts } = cache.readQuery({ query: QUERY_POSTS });
         cache.writeQuery({
-          query: QUERY_FEELINGS,
-          data: { feelings: [addFeeling, ...feelings] }
+          query: QUERY_POSTS,
+          data: { posts: [addPost, ...posts] }
         });
       } catch (e) {
         console.error(e);
@@ -27,7 +27,7 @@ function Mood() {
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, feelings: [...me.feelings, addFeeling] } }
+        data: { me: { ...me, posts: [...me.posts, addPost] } }
       });
     }
   });
@@ -46,8 +46,8 @@ function Mood() {
 
     try {
       // add feeling to database
-      await addFeeling({
-        variables: { feelingText }
+      await addPost({
+        variables: { postText }
       });
 
       // clear form value
@@ -73,7 +73,7 @@ function Mood() {
           >
             <textarea
               placeholder="Please let your midwife know how you are doing"
-              value={feelingText}
+              value={postText}
               className="form-input col-12 col-md-9"
               onChange={handleChange}
             ></textarea>
@@ -87,4 +87,4 @@ function Mood() {
   );
 }
 
-export default Mood;
+export default Post;

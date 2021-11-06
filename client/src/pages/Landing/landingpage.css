@@ -1,0 +1,17 @@
+.login_signup {
+    height: 50vh;
+}
+
+.login_signup_forms {
+    margin: 10vh;
+}
+
+/* .landingHero {
+    margin-top: -115vh;
+    filter: brightness(1.0);
+    color: white;
+} */
+
+video {
+    filter: brightness(0.7);
+}

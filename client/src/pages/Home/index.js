@@ -2,7 +2,7 @@ import React from 'react';
 
 // import components
 import NavbarUser from '../../components/NavbarUser';
-import Mood from '../../components/Mood';
+import Post from '../../components/Post';
 import Auth from '../../utils/auth';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_ME_BASIC } from '../../utils/queries';
@@ -18,7 +18,7 @@ function Home(props) {
                 {userData && Auth.loggedIn() ? (
                     <>
                     <div className="home-cards">
-                        <Mood />
+                        <Post />
                     </div>
                     </>
                 ) : (

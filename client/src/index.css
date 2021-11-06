@@ -72,15 +72,15 @@ a::after {
   padding-top: 5%;
   margin-top: auto;
   margin-bottom: 16%;
-  color: #c2983d;
+  color: #FF8D43;
   font-weight: 700;
   letter-spacing: 5px;
 }
 
 .btn {
   background-color: #252425;
-  color: #c2983d;
-  margin: 1rem;
+  color: white;
+  /* margin: 1rem; */
   /* box-shadow: 0 8px 6px -6px black; */
 }
 

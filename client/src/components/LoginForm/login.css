@@ -1,0 +1,29 @@
+.login-section {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+label {
+    padding-right: 5px;
+}
+
+.label_input {
+    display: flex;
+}
+
+.login_button {
+    align-self: end !important;
+}
+
+@media only screen and (max-width: 800px) {
+    .login-section {
+        display: grid;
+        grid-gap: 10px;
+        justify-content: space-evenly;
+        align-items: flex-end;
+    }
+    .label_input {
+        display: block;
+    }
+}

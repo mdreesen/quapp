@@ -36,18 +36,6 @@ class AuthService {
         return localStorage.getItem('id_token');
     }
 
-    adminLogin(idTokenWorker) {
-        if (idTokenWorker) {
-            localStorage.setItem('id_token', idTokenWorker);
-            window.location.assign('/admin-home');
-        } else {
-            window.location.assign('/');
-        }
-//         localStorage.setItem('id_token', idTokenWorker);
-// debugger;
-//         window.location.assign('/worker-home');
-    }
-
     // set token to local storage and reload to homepage
     userLogin(idToken) {
         // saves user token to local storage
@@ -58,7 +46,6 @@ class AuthService {
         } else {
             window.location.assign('/');
         }
-        // window.location.assign('/home');
     }
 
     // clear token from local storage and force logout with reload
