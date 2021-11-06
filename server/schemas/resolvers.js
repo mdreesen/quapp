@@ -1,4 +1,4 @@
-const { User, Admin, Feeling } = require('../models');
+const { User, Post } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -51,12 +51,12 @@ const resolvers = {
     // getting all posts
     posts: async (parent, { email }) => {
       const params = email ? { email } : {};
-      return Feeling.find(params).sort({ createdAt: -1 });
+      return Post.find(params).sort({ createdAt: -1 });
     },
 
     // get one feeling
     post: async (parent, { email }) => {
-      return Feeling.findOne({ email });
+      return Post.findOne({ email });
     },
   },
 
@@ -81,15 +81,15 @@ const resolvers = {
       return { token, user };
     },
 
-    post: async (parent, args, context) => {
+    addPost: async (parent, args, context) => {
       if (context.user) {
-        const feeling = await Feeling.create({ ...args, email: context.user.email });
+        const post = await Post.create({ ...args, email: context.user.email });
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $push: { posts: feeling._id } },
+          { $push: { posts: post._id } },
           { new: true }
         );
-        return feeling;
+        return post;
       }
       throw new AuthenticationError('You need to be logged in!');
     }
