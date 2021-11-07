@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { QUERY_POSTS } from '../../utils/queries';
 
 import NavbarUser from '../../components/NavbarUser';
+import TypePost from '../../components/Post';
 
 const Post = () => {
 
@@ -24,9 +25,9 @@ const Post = () => {
                     <>
                         <div key={`each-card-${userPost?._id}`} className="card box-shadow-back" style={{ width: '50vh' }}>
                             <div className="card-body" key={`each-card-${userPost?._id}`}>
-                                <h5>{userPost.email}</h5>
-                                <h6>{index + 1}</h6>
-                                <p className="card-text">{userPost?.postText}</p>
+                                <p>{userPost.email}</p>
+                                <p>{index + 1}</p>
+                                <h3 className="card-text">{userPost?.postText}</h3>
                             </div>
                         </div>
                     </>
@@ -42,6 +43,9 @@ const Post = () => {
             {Auth.loggedIn() ? (
                 <div>
                     <h1>Quack</h1>
+                    <div>
+                        <TypePost />
+                    </div>
                     <div className="row">
                         <AllPosts />
                     </div>

@@ -32,6 +32,41 @@ function Post() {
     }
   });
 
+  const keys = event => {
+    // q
+    if (event.keyCode === 81) {
+      console.log(event.keyCode)
+      return 'q'
+    }
+    // u
+    else if (event.keyCode === 85) {
+      console.log(event.keyCode)
+
+      return 'u'
+    }
+    // a
+    else if (event.keyCode === 65) {
+      console.log(event.keyCode)
+
+      return 'a'
+    }
+    // c
+    else if (event.keyCode === 67) {
+      console.log(event.keyCode)
+
+      return 'c'
+    }
+    // k
+    else if (event.keyCode === 75) {
+      console.log(event.keyCode)
+
+      return 'k'
+    } else {
+      return setText === '';
+
+    }
+  }
+
   // update state based on form input changes
   const handleChange = event => {
     if (event.target.value.length <= 280) {
@@ -60,23 +95,21 @@ function Post() {
 
   return (
     <div>
-      <div className="card box-shadow-back" style={{ width: '18rem' }}>
-        <div className="card-body">
-          <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
-            Character Count: {characterCount}/280
+      <div className="card-body">
+        <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
+          Character Count: {characterCount}/280
             {error && <span className="ml-2">Something went wrong...</span>}
-          </p>
-          <form
-            className="flex-row justify-center justify-space-between-md align-stretch"
-            onSubmit={handleFormSubmit}
-          >
-            <div><input id="post_text" name="postText" value={postText} onChange={handleChange} autoComplete="on" placeholder="quack" /></div>
+        </p>
+        <form
+          className="flex-row justify-center justify-space-between-md align-stretch"
+          onSubmit={handleFormSubmit}
+        >
+          <div><input id="post_text" name="postText" value={postText} onKeyDown={keys} onChange={keys == true ? handleChange : ''} autoComplete="on" placeholder="quack" /></div>
 
-            <button className="btn" type="submit">
-              Submit
+          <button className="btn" type="submit">
+            Submit
             </button>
-          </form>
-        </div>
+        </form>
       </div>
     </div>
   );
