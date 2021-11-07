@@ -104,7 +104,7 @@ function Post() {
           className="flex-row justify-center justify-space-between-md align-stretch"
           onSubmit={handleFormSubmit}
         >
-          <div><input id="post_text" name="postText" value={postText} onKeyDown={keys} onChange={keys == true ? handleChange : ''} autoComplete="on" placeholder="quack" /></div>
+          <div><input id="post_text" name="postText" value={postText} onKeyDown={keys} onChange={keys ? handleChange : ''} autoComplete="on" placeholder="quack" /></div>
 
           <button className="btn" type="submit">
             Submit

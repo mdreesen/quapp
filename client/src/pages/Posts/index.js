@@ -46,9 +46,19 @@ const Post = () => {
                     <div>
                         <TypePost />
                     </div>
-                    <div className="row">
-                        <AllPosts />
-                    </div>
+                    {
+                        post.length > 0 ? (
+                            <div className="row">
+                                <AllPosts />
+                            </div>
+                        ) : (
+                                <div>
+                                    <h2>No Quacks Yet...</h2>
+                                    <h2>I guess you should be the first</h2>
+                                </div>
+                            )
+                    }
+
                 </div>
 
             ) : (
