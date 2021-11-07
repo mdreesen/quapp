@@ -32,41 +32,6 @@ function Post() {
     }
   });
 
-  const keys = event => {
-    // q
-    if (event.keyCode === 81) {
-      console.log(event.keyCode)
-      return 'q'
-    }
-    // u
-    else if (event.keyCode === 85) {
-      console.log(event.keyCode)
-
-      return 'u'
-    }
-    // a
-    else if (event.keyCode === 65) {
-      console.log(event.keyCode)
-
-      return 'a'
-    }
-    // c
-    else if (event.keyCode === 67) {
-      console.log(event.keyCode)
-
-      return 'c'
-    }
-    // k
-    else if (event.keyCode === 75) {
-      console.log(event.keyCode)
-
-      return 'k'
-    } else {
-      return setText === '';
-
-    }
-  }
-
   // update state based on form input changes
   const handleChange = event => {
     if (event.target.value.length <= 280) {
@@ -74,6 +39,42 @@ function Post() {
       setCharacterCount(event.target.value.length);
     }
   };
+
+
+  const keys = (event, handleChange) => {
+    console.log(event.code)
+
+    return event.code === 'KeyQ' || event.code === 'KeyU' || event.code === 'KeyA' || event.code === 'KeyC' || event.code === 'KeyK' ? handleChange : '';
+
+    // if (event.keyCode === 81) {
+    //   console.log(event.keyCode)
+    //   return event.keyCode
+    // }
+    // // u
+    // if (event.keyCode === 85) {
+    //   console.log(event.keyCode)
+
+    //   return event.keyCode
+    // }
+    // // a
+    // if (event.keyCode === 65) {
+    //   console.log(event.keyCode)
+
+    //   return event.keyCode
+    // }
+    // // c
+    // if (event.keyCode === 67) {
+    //   console.log(event.keyCode)
+
+    //   return event.keyCode
+    // }
+    // // k
+    // if (event.keyCode === 75) {
+    //   console.log(event.keyCode)
+
+    //   return event.keyCode
+    // }
+  }
 
   // submit form
   const handleFormSubmit = async event => {
@@ -104,7 +105,7 @@ function Post() {
           className="flex-row justify-center justify-space-between-md align-stretch"
           onSubmit={handleFormSubmit}
         >
-          <div><input id="post_text" name="postText" value={postText} onKeyDown={keys} onChange={keys ? handleChange : ''} autoComplete="on" placeholder="quack" /></div>
+          <div><input id="post_text" name="postText" value={postText} onKeyDown={keys} onChange={keys && handleChange} autoComplete="on" placeholder="quack" /></div>
 
           <button className="btn" type="submit">
             Submit
